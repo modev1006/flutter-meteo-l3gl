@@ -1,0 +1,40 @@
+import 'package:flutter/material.dart';
+import '../screens/home_screen.dart';
+import '../screens/loading_screen.dart';
+import '../screens/city_list_screen.dart';
+import '../screens/city_detail_screen.dart';
+
+class AppRoutes {
+  static const String home = '/';
+  static const String loading = '/loading';
+  static const String cityList = '/city-list';
+  static const String cityDetail = '/city-detail';
+
+  static final Map<String, WidgetBuilder> routes = {
+    home: (context) => HomeScreen(),
+    loading: (context) => LoadingScreen(),
+    cityList: (context) => CityListScreen(),
+    cityDetail: (context) => CityDetailScreen(),
+  };
+
+  static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
+    switch (settings.name) {
+      case home:
+        return MaterialPageRoute(builder: (_) => HomeScreen());
+      case loading:
+        return MaterialPageRoute(builder: (_) => LoadingScreen());
+      case cityList:
+        return MaterialPageRoute(builder: (_) => CityListScreen());
+      case cityDetail:
+        return MaterialPageRoute(builder: (_) => CityDetailScreen());
+      default:
+        return MaterialPageRoute(
+          builder: (_) => Scaffold(
+            body: Center(
+              child: Text('Page non trouvée: ${settings.name}'),
+            ),
+          ),
+        );
+    }
+  }
+}
