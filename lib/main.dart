@@ -1,33 +1,44 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'providers/weather_provider.dart';
-import 'providers/loading_provider.dart';
-import 'screens/home_screen.dart';
-import 'utils/themes.dart';
-import 'routes/app_routes.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => WeatherProvider()),
-        ChangeNotifierProvider(create: (_) => LoadingProvider()),
-      ],
-      child: MaterialApp(
-        title: 'MétéoApp Magique',
-        debugShowCheckedModeBanner: false,
-        theme: AppTheme.lightTheme,
-        darkTheme: AppTheme.darkTheme,
-        themeMode: ThemeMode.system,
-        initialRoute: AppRoutes.home,
-        routes: AppRoutes.routes,
-        onGenerateRoute: AppRoutes.onGenerateRoute,
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
+      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key, required this.title});
+
+  final String title;
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: Text(widget.title),
+      ),
+      body: const Center(
+        child: Text('Projet réinitialisé'),
       ),
     );
   }
