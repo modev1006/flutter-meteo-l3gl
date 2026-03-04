@@ -1,7 +1,15 @@
+/// Modèle représentant une ville et ses coordonnées géographiques.
 class CityModel {
+  /// Nom de la ville.
   final String name;
+  
+  /// Code pays (ex: "FR", "US").
   final String country;
+  
+  /// Latitude géographique.
   final double latitude;
+  
+  /// Longitude géographique.
   final double longitude;
 
   const CityModel({
@@ -11,6 +19,7 @@ class CityModel {
     required this.longitude,
   });
 
+  /// Liste de villes par défaut proposées dans l'application.
   static const List<CityModel> defaultCities = [
     CityModel(name: 'Paris', country: 'FR', latitude: 48.8566, longitude: 2.3522),
     CityModel(name: 'Londres', country: 'GB', latitude: 51.5074, longitude: -0.1278),
