@@ -1,6 +1,6 @@
 {
-    "name": "mete",
-    "short_name": "mete",
+    "name": "meteo",
+    "short_name": "meteo",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

@@ -1,4 +1,4 @@
-name: mete
+name: meteo
 description: Une application météo magique
 publish_to: 'none'
 version: 1.0.0+1

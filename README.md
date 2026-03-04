@@ -1,4 +1,4 @@
-# mete
+# meteo
 
 A new Flutter project.
 
