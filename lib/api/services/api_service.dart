@@ -5,14 +5,28 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import '../models/weather_model.dart';
 import '../../utils/constants.dart';
 
+/// Service responsable de la communication avec l'API OpenWeatherMap.
+/// 
+/// Ce service gère les requêtes HTTP, la vérification de la connexion
+/// et la conversion des réponses JSON en modèles d'objets Dart.
 class ApiService {
+  /// URL de base pour les requêtes météo actuelles.
   static const String _baseUrl = 'https://api.openweathermap.org/data/2.5/weather';
 
+  /// Vérifie si l'appareil a accès à internet.
+  /// 
+  /// Retourne [true] si une connexion est détectée, [false] sinon.
   Future<bool> checkConnectivity() async {
     var connectivityResult = await Connectivity().checkConnectivity();
     return connectivityResult != ConnectivityResult.none;
   }
 
+  /// Récupère la météo pour une ville donnée par son nom.
+  /// 
+  /// [cityName] : Le nom de la ville (ex: "Paris").
+  /// 
+  /// Lance une [Exception] si la connexion échoue, si la ville n'est pas trouvée
+  /// ou si la clé API est invalide.
   Future<WeatherModel> fetchWeather(String cityName) async {
     // Vérifier la connexion
     if (!await checkConnectivity()) {
@@ -44,6 +58,11 @@ class ApiService {
     }
   }
 
+  /// Récupère la météo pour une liste de plusieurs villes simultanément.
+  /// 
+  /// [cityNames] : Liste des noms de villes.
+  /// 
+  /// Retourne une liste de [WeatherModel] une fois que toutes les requêtes sont terminées.
   Future<List<WeatherModel>> fetchMultipleCities(List<String> cityNames) async {
     List<Future<WeatherModel>> futures = [];
 
