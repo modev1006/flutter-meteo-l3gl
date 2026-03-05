@@ -5,7 +5,7 @@ Projet de Développement Mobile réalisé dans le cadre de l'examen final.
 ### 👥 Membres du Groupe
 1. **Khadim Syll**
 2. **Baye Cheikh Ndiaye**
-3. **Mohamed Dr**
+3. **Mohamed Drame**
 
 ### 🚀 Fonctionnalités
 - **Retrofit** : Appels API optimisés avec Dio.
