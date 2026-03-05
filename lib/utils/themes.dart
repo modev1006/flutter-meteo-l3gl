@@ -8,7 +8,7 @@ class AppTheme {
       primary: Color(0xFF2196F3),
       secondary: Color(0xFF4CAF50),
       surface: Colors.white,
-      background: Color(0xFFF5F5F5),
+      onSurface: Colors.black,
       error: Color(0xFFD32F2F),
     ),
     appBarTheme: const AppBarTheme(
@@ -17,7 +17,7 @@ class AppTheme {
       backgroundColor: Color(0xFF2196F3),
       foregroundColor: Colors.white,
     ),
-    cardTheme: CardThemeData(  // Changé de CardTheme à CardThemeData
+    cardTheme: CardThemeData(
       elevation: 2,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
@@ -38,32 +38,35 @@ class AppTheme {
   static final ThemeData darkTheme = ThemeData(
     useMaterial3: true,
     brightness: Brightness.dark,
+    scaffoldBackgroundColor: const Color(0xFF0A0E21),
     colorScheme: const ColorScheme.dark(
-      primary: Color(0xFF42A5F5),
-      secondary: Color(0xFF66BB6A),
-      surface: Color(0xFF1E1E1E),
-      background: Color(0xFF121212),
-      error: Color(0xFFEF5350),
+      primary: Color(0xFF00D2FF),
+      secondary: Color(0xFF00FFF0),
+      surface: Color(0xFF1D1E33),
+      onSurface: Colors.white,
+      primaryContainer: Color(0xFF111428),
+      error: Color(0xFFFF4B4B),
     ),
     appBarTheme: const AppBarTheme(
       elevation: 0,
       centerTitle: true,
-      backgroundColor: Color(0xFF1E1E1E),
+      backgroundColor: Color(0xFF0A0E21),
       foregroundColor: Colors.white,
     ),
-    cardTheme: CardThemeData(  // Changé de CardTheme à CardThemeData
-      elevation: 2,
+    cardTheme: CardThemeData(
+      color: const Color(0xFF1D1E33),
+      elevation: 8,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(20),
       ),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        backgroundColor: const Color(0xFF42A5F5),
-        foregroundColor: Colors.white,
-        minimumSize: const Size(88, 44),
+        backgroundColor: const Color(0xFF00D2FF),
+        foregroundColor: const Color(0xFF0A0E21),
+        minimumSize: const Size(88, 50),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(15),
         ),
       ),
     ),

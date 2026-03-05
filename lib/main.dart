@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'providers/weather_provider.dart';
 import 'providers/loading_provider.dart';
-import 'screens/home_screen.dart';
+import 'providers/theme_provider.dart';
 import 'utils/themes.dart';
 import 'routes/app_routes.dart';
 
@@ -18,16 +18,21 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => WeatherProvider()),
         ChangeNotifierProvider(create: (_) => LoadingProvider()),
+        ChangeNotifierProvider(create: (_) => ThemeProvider()),
       ],
-      child: MaterialApp(
-        title: 'MétéoApp Magique',
-        debugShowCheckedModeBanner: false,
-        theme: AppTheme.lightTheme,
-        darkTheme: AppTheme.darkTheme,
-        themeMode: ThemeMode.system,
-        initialRoute: AppRoutes.home,
-        routes: AppRoutes.routes,
-        onGenerateRoute: AppRoutes.onGenerateRoute,
+      child: Consumer<ThemeProvider>(
+        builder: (context, themeProvider, child) {
+          return MaterialApp(
+            title: 'MétéoApp Magique',
+            debugShowCheckedModeBanner: false,
+            theme: AppTheme.lightTheme,
+            darkTheme: AppTheme.darkTheme,
+            themeMode: themeProvider.themeMode,
+            initialRoute: AppRoutes.home,
+            routes: AppRoutes.routes,
+            onGenerateRoute: AppRoutes.onGenerateRoute,
+          );
+        },
       ),
     );
   }

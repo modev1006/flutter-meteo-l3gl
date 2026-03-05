@@ -43,7 +43,7 @@ class ApiService {
 
       if (response.statusCode == 200) {
         final jsonData = json.decode(response.body);
-        return WeatherModel.fromJson(jsonData, cityName);
+        return WeatherModel.fromJson(jsonData);
       } else if (response.statusCode == 401) {
         throw Exception('Clé API invalide');
       } else if (response.statusCode == 404) {

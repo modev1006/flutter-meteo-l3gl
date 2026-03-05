@@ -19,7 +19,7 @@ class WeatherService {
 
     if (cachedData != null) {
       final List<dynamic> jsonList = json.decode(cachedData);
-      return jsonList.map((json) => WeatherModel.fromJson(json, json['cityName'])).toList();
+      return jsonList.map((json) => WeatherModel.fromJson(json)).toList();
     }
     return null;
   }

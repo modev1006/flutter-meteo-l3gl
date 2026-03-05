@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../screens/home_screen.dart';
 import '../screens/loading_screen.dart';
+import '../screens/city_detail_screen.dart';
 
 
 class AppRoutes {
@@ -20,6 +21,11 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => HomeScreen());
       case loading:
         return MaterialPageRoute(builder: (_) => LoadingScreen());
+      case cityDetail:
+        return MaterialPageRoute(
+          builder: (context) => CityDetailScreen(),
+          settings: settings,
+        );
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(
